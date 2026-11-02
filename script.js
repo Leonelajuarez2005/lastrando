@@ -9,80 +9,99 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-//Cotización del dólar y reservas
+
+//Gestión de reserva 
 document.addEventListener('DOMContentLoaded', () => {
-    const packageSelect = document.getElementById('package-select');
-    const peopleQty = document.getElementById('people-qty');
-    const unitUsdEl = document.getElementById('unit-usd');
-    const totalUsdEl = document.getElementById('total-usd');
-    const totalArsEl = document.getElementById('total-ars');
-    const rateEl = document.getElementById('exchange-rate');
-    const form = document.getElementById('experience-form');
-    const confirmation = document.getElementById('booking-confirmation');
+    const circuitSelect = document.getElementById('circuit-select');
+    const circuitInfoBox = document.getElementById('circuit-info-box');
+    const bookingForm = document.getElementById('table-booking-form');
+    const bookingConfirmation = document.getElementById('booking-confirmation');
 
-    // Cotización por si falla la API
-    let usdRate = 1450;
-
-    //tipo de cambio del dólar 
-    async function fetchExchangeRate() {
-        try {
-            const response = await fetch('https://dolarapi.com/v1/dolares/oficial');
-            if (response.ok) {
-                const data = await response.json();
-                usdRate = data.venta;
-                if (rateEl) {
-                    rateEl.textContent = `$${usdRate.toFixed(2)} ARS (Fuente: DolarApi Oficial)`;
-                }
-            } else {
-                throw new Error('No se pudo conectar a la API de divisas.');
-            }
-        } catch (error) {
-            console.warn('Usando cotización de reserva por error en API:', error);
-            if (rateEl) {
-                rateEl.textContent = `$${usdRate.toFixed(2)} ARS (Cotización oficial de referencia)`;
-            }
+    // Listado con una sola ubicación representativa por local
+    const circuitDetails = {
+        fastfood: {
+            title: "🍔 Recorrido Fast Food & Hamburgueserías de Autor",
+            places: [
+                "<strong>Félix Burgers:</strong> Av. Francisco Beiró 4473, Devoto (CABA)",
+                "<strong>Big Pons:</strong> Unicenter Shopping, Martínez (GBA Norte)",
+                "<strong>Kiddo:</strong> Honduras 5265, Palermo (CABA)",
+                "<strong>Frank's Grill:</strong> Av. del Libertador 13837, Martínez (GBA Norte)"
+            ]
+        },
+        meriendas: {
+            title: "☕ Recorrido Cafeterías & Meriendas de Especialidad",
+            places: [
+                "<strong>La Panera Rosa:</strong> Av. Coronel Díaz 2401, Recoleta (CABA)",
+                "<strong>Ayulem:</strong> La Pampa 2300, Belgrano (CABA)"
+            ]
+        },
+        parrillas: {
+            title: "🥩 Recorrido Parrillas & Bodegones Tradicionales",
+            places: [
+                "<strong>Bodegón de All Boys:</strong> Mercedes 1951, Floresta (CABA)",
+                "<strong>El Ferroviario:</strong> Reservistas Argentinos 219, Liniers (CABA)"
+            ]
+        },
+        bares: {
+            title: "🍸 Recorrido Bares, Coctelería & Night",
+            places: [
+                "<strong>Invernadero:</strong> Av. del Libertador 1609, Recoleta (CABA)",
+                "<strong>Misión Bar:</strong> Plaza Serrano, Palermo (CABA)"
+            ]
+        },
+        internacional: {
+            title: "🍣 Recorrido Comida Internacional & Sabores del Mundo",
+            places: [
+                "<strong>Fabric Sushi:</strong> Av. Pedro Goyena 100, Caballito (CABA)",
+                "<strong>Kansas Grill:</strong> Av. del Libertador 105, San Isidro (GBA Norte)"
+            ]
         }
-        calculateTotal();
+    };
+
+    function updateCircuitInfo() {
+        if (!circuitSelect || !circuitInfoBox) return;
+
+        const selectedKey = circuitSelect.value;
+        const details = circuitDetails[selectedKey];
+
+        if (details) {
+            let listHTML = details.places.map(place => `<li>• ${place}</li>`).join('');
+            circuitInfoBox.innerHTML = `
+                <p class="font-bold text-carbon text-sm">${details.title}</p>
+                <p class="text-gray-600 font-medium">Este recorrido incluye la visita guiada y mesa reservada en las siguientes paradas:</p>
+                <ul class="space-y-1 text-gray-700 mt-1">${listHTML}</ul>
+            `;
+        }
     }
 
-    // USD a ARS
-    function calculateTotal() {
-        if (!packageSelect || !peopleQty) return;
-
-        const unitPrice = parseFloat(packageSelect.value) || 0;
-        const qty = parseInt(peopleQty.value) || 1;
-        const totalUSD = unitPrice * qty;
-        const totalARS = totalUSD * usdRate;
-
-        if (unitUsdEl) {
-            unitUsdEl.textContent = `$${unitPrice.toFixed(2)} USD`;
-        }
-        if (totalUsdEl) {
-            totalUsdEl.textContent = `$${totalUSD.toFixed(2)} USD`;
-        }
-        if (totalArsEl) {
-            totalArsEl.textContent = `$${totalARS.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-        }
+    if (circuitSelect) {
+        circuitSelect.addEventListener('change', updateCircuitInfo);
+        updateCircuitInfo(); // Carga la información inicial al abrir la página
     }
 
-    if (packageSelect && peopleQty) {
-        packageSelect.addEventListener('change', calculateTotal);
-        peopleQty.addEventListener('input', calculateTotal);
-        fetchExchangeRate();
-    }
-
-    if (form) {
-        form.addEventListener('submit', (e) => {
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const selectedOption = packageSelect.options[packageSelect.selectedIndex].getAttribute('data-name') || packageSelect.options[packageSelect.selectedIndex].text;
-            
-            if (confirmation) {
-                confirmation.innerHTML = `<strong>¡Reserva Confirmada (Simulación)!</strong><br>Has seleccionado: <em>${selectedOption}</em> para <strong>${peopleQty.value} persona(s)</strong>.<br>Importe a abonar en el establecimiento: <strong>${totalArsEl ? totalArsEl.textContent : '$0.00'} ARS</strong> (${totalUsdEl ? totalUsdEl.textContent : '$0.00 USD'}).`;
-                confirmation.classList.remove('hidden');
+
+            const name = document.getElementById('booking-name').value.trim();
+            const circuitText = circuitSelect.options[circuitSelect.selectedIndex].text;
+            const shift = document.getElementById('shift-select').value;
+            const qty = document.getElementById('people-qty').value;
+
+            if (bookingConfirmation) {
+                bookingConfirmation.innerHTML = `
+                    <strong>¡Recorrido Reservado con Éxito!</strong><br>
+                    Gracias <em>${name}</em>. Confirmamos tu reserva para el <strong>${circuitText}</strong>.<br>
+                    Comensales: <strong>${qty} persona(s)</strong> | Turno: <strong>${shift}</strong>.
+                `;
+                bookingConfirmation.classList.remove('hidden');
+                bookingForm.reset();
+                updateCircuitInfo();
             }
         });
     }
 });
+
 //Validación de formularios 
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form') || document.getElementById('formContacto');
@@ -137,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 //Bot de consultas
 document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
