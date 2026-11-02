@@ -28,13 +28,11 @@
 </head>
 <body class="bg-crema text-carbon font-sans flex flex-col min-h-screen">
 
-    <!-- Header y Navegación Responsive -->
     <header class="bg-white border-b border-topo sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <a href="index.html" class="flex items-center space-x-2">
             <img src="logo.png" alt="Logo de Lastrando" class="h-8 w-auto object-contain">
         </a>
-            <!-- Menú Desktop -->
             <nav class="hidden md:flex space-x-6 font-medium text-sm">
                 <a href="index.html" class="text-nude font-bold border-b-2 border-nude">Inicio</a>
                 <a href="merienda.html" class="hover:text-topo transition">Meriendas</a>
@@ -44,12 +42,10 @@
                 <a href="internacional.html" class="hover:text-topo transition">Internacional</a>
                 <a href="reservar.html" class="hover:text-topo transition">Reservar</a>
             </nav>
-            <!-- Menú Hamburguesa Mobile -->
             <button id="hamburger-btn" class="md:hidden p-2 text-carbon focus:outline-none" aria-label="Abrir menú de navegación">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-        </div>
-        <!-- Menú desplegable Mobile -->
+      </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-topo px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
             <a href="index.html" class="block py-1 text-nude font-bold">Inicio</a>
             <a href="meriendas.html" class="block py-1 hover:text-topo">Meriendas</a>
@@ -68,9 +64,8 @@
             <div class="inline-block bg-nude text-carbon px-6 py-2 rounded-full font-semibold text-sm shadow-sm">5 Circuitos Únicos • Fotos Propias</div>
         </section>
 
-        <!-- Tarjetas de Acceso a los Puntos de Interés (Grid Responsive) -->
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Card 1 -->
+  
             <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
                 <img src="img/meriendavedra.heif" alt="Merienda con jugo y porción de torta de vainilla con relleno de frambuesa" class="w-full h-48 object-cover">
                 <div class="p-5 space-y-3">
@@ -79,7 +74,7 @@
                     <a href="meriendas.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
                 </div>
             </article>
-            <!-- Card 2 -->
+    
             <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
                 <img src="img/bodegones.PNG" alt="Abundantes platos acompañado con una copa de vino" class="w-full h-48 object-cover">
                 <div class="p-5 space-y-3">
@@ -88,7 +83,7 @@
                     <a href="parrillas-bodegones.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
                 </div>
             </article>
-            <!-- Card 3 -->
+           
             <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
                 <img src="img/felixburguers.HEIC" alt="Hamburguesa smash doble con queso cheddar fundido y papas fritas" class="w-full h-48 object-cover">
                 <div class="p-5 space-y-3">
@@ -97,7 +92,7 @@
                     <a href="fast-food.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
                 </div>
             </article>
-            <!-- Card 4 -->
+   
             <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
                 <img src="img/baresMisiónBar .jpg" alt="Sección moderna de barra con botellas alcoholicas con las que realizan los tragos" class="w-full h-48 object-cover">
                 <div class="p-5 space-y-3">
@@ -106,7 +101,7 @@
                     <a href="bares-night.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
                 </div>
             </article>
-            <!-- Card 5 -->
+  
             <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
                 <img src="img/internacional.HEIC" alt="Ribs con barbacoa acompañadas de una porción de papas fritas y coleslaw" class="w-full h-48 object-cover">
                 <div class="p-5 space-y-3">
@@ -117,7 +112,6 @@
             </article>
         </section>
 
-        <!-- Mapa del Recorrido (Google My Maps Integrado) -->
         <section class="bg-white p-6 rounded-lg border border-topo space-y-4">
             <h2 class="text-2xl font-bold text-center">Mapa Interactivo del Recorrido</h2>
             <p class="text-center text-sm text-gray-600 max-w-xl mx-auto">Localizá todos los puntos gastronómicos en CABA y GBA para organizar tu propia ruta.</p>
