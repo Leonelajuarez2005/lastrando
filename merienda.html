@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeterías & Meriendas - LASTRANDO</title>
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { carbon: '#1A1A1A', crema: '#F6F4F1', topo: '#C9C1B4', nude: '#F6DFCD' }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-crema text-carbon font-sans min-h-screen flex flex-col">
+
+    <header class="bg-white border-b border-topo sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="logo.png" alt="Logo de Lastrando" class="h-8 w-auto object-contain">
+            </a>
+            <nav class="hidden md:flex space-x-6 font-medium text-sm">
+                <a href="index.html" class="text-nude font-bold border-b-2 border-nude">Inicio</a>
+                <a href="merienda.html" class="hover:text-topo transition">Meriendas</a>
+                <a href="parrillas.html" class="hover:text-topo transition">Parrillas & Bodegones</a>
+                <a href="fastfood.html" class="hover:text-topo transition">Fast Food</a>
+                <a href="bares.html" class="hover:text-topo transition">Bares & Night</a>
+                <a href="internacional.html" class="hover:text-topo transition">Internacional</a>
+                <a href="reservar.html" class="hover:text-topo transition">Reservar</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-12 flex-grow">
+        <section class="space-y-4">
+            <h1 class="text-3xl md:text-4xl font-bold">Cafeterías de Especialidad & Ritual del Café</h1>
+            <p class="text-gray-700 leading-relaxed">
+                Este circuito reúne espacios estéticos y cálidos diseñados para los amantes de la buena lectura y la pausa contemplativa, combinando pastelería artesanal y variedades de granos seleccionados.
+            </p>
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="reservar.html" class="bg-carbon text-crema hover:bg-opacity-90 px-4 py-1.5 rounded-full text-xs font-semibold transition">
+                    ☕ Reservar este Recorrido →
+                </a>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <article class="bg-white p-6 rounded-lg border border-topo space-y-4">
+                <img src="assets/img/panera-rosa.jpg" alt="Interior acogedor de La Panera Rosa con vajilla de diseño y porción de torta casera" class="w-full h-56 object-cover rounded">
+                <h2 class="text-2xl font-bold">La Panera Rosa</h2>
+                <p class="text-sm text-gray-600">Pastelería artesanal en vajilla vintage y blends de café en esquinas emblemáticas de la ciudad.</p>
+                <div class="bg-crema p-4 rounded text-xs space-y-1 text-gray-700">
+                    <p>📍 <strong>Ubicación:</strong> Sucursales en CABA (Polos comerciales)</p>
+                    <p>⏰ <strong>Horarios:</strong> Mar a Dom 08:30 a 20:00 hs</p>
+                    <p>⏳ <strong>Duración estimada:</strong> 1 a 2 horas</p>
+                </div>
+            </article>
+
+            <article class="bg-white p-6 rounded-lg border border-topo space-y-4">
+                <img src="assets/img/ayulem.jpg" alt="Rincón de lectura iluminado en Ayulem con taza de flat white y libro abierto" class="w-full h-56 object-cover rounded">
+                <h2 class="text-2xl font-bold">Ayulem & Cafés de Barrio</h2>
+                <p class="text-sm text-gray-600">Ambiente tranquilo ideal para lectura y desconexión digital con tostadas de masa madre.</p>
+                <div class="bg-crema p-4 rounded text-xs space-y-1 text-gray-700">
+                    <p>📍 <strong>Ubicación:</strong> Zonas residenciales de fácil acceso</p>
+                    <p>⏰ <strong>Horarios:</strong> Mar a Dom 09:00 a 20:00 hs</p>
+                    <p>⏳ <strong>Duración estimada:</strong> 1.5 horas</p>
+                </div>
+            </article>
+        </section>
+
+    <!-- Formulario de Consultas -->
+        <section class="bg-white p-6 md:p-8 rounded-lg border border-topo max-w-2xl mx-auto space-y-6">
+            <h2 class="text-2xl font-bold text-center">Consultas</h2>
+            <form id="contact-form" class="space-y-4" novalidate>
+                <div>
+                    <label for="contact-name" class="block text-sm font-medium">Nombre completo</label>
+                    <input type="text" id="contact-name" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon" required>
+                    <span id="name-error" class="text-xs text-red-500 hidden">Por favor ingresá tu nombre.</span>
+                </div>
+                <div>
+                    <label for="contact-email" class="block text-sm font-medium">Correo Electrónico</label>
+                    <input type="email" id="contact-email" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon" required>
+                    <span id="email-error" class="text-xs text-red-500 hidden">Ingresá un correo electrónico válido.</span>
+                </div>
+                <div>
+                    <label for="contact-reason" class="block text-sm font-medium">Motivo de la consulta</label>
+                    <select id="contact-reason" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon">
+                        <option value="recomendacion">Recomendar un local</option>
+                        <option value="recorrido">Dudas sobre los recorridos / reservas</option>
+                        <option value="menu">Dudas sobre opciones celíacas / veganas</option>
+                        <option value="otro">Consulta general</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="contact-message" class="block text-sm font-medium">Mensaje</label>
+                    <textarea id="contact-message" rows="4" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon" required></textarea>
+                    <span id="message-error" class="text-xs text-red-500 hidden">El mensaje no puede estar vacío.</span>
+                </div>
+                <button type="submit" class="w-full bg-carbon text-crema font-bold py-2.5 rounded hover:bg-opacity-90 transition">
+                    Enviar Consulta (Simulación)
+                </button>
+            </form>
+            <div id="contact-alert" class="hidden p-4 bg-green-100 border border-green-400 text-green-800 rounded text-sm text-center"></div>
+        </section>
+
+        <!-- Asistente Virtual / Chatbot Interactivo -->
+        <section class="bg-white p-6 rounded-lg border border-topo max-w-2xl mx-auto space-y-4">
+            <h2 class="text-xl font-bold flex items-center space-x-2">
+                <span>🤖 Asistente Virtual LASTRANDO</span>
+            </h2>
+            <div id="chat-window" class="h-48 border border-topo rounded p-3 overflow-y-auto space-y-2 bg-crema text-xs">
+                <div class="bg-white p-2 rounded max-w-xs border border-topo">
+                    ¡Hola! Soy el asistente gastronómico de Lastrando. ¿Tenés dudas sobre las reservas, los horarios de los recorridos o los medios de pago?
+                </div>
+            </div>
+            <div class="flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Escribí tu pregunta acá..." class="flex-grow border border-topo rounded px-3 py-1.5 text-sm focus:outline-none focus:ring-1 focus:ring-carbon">
+                <button id="chat-send" class="bg-nude px-4 py-1.5 font-bold rounded text-sm hover:bg-opacity-80 transition">Enviar</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-carbon text-crema py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-topo">LASTRANDO © 2026 • Proyecto UADE</div>
+    </footer>
+</body>
+</html>
