@@ -182,31 +182,32 @@
                 <li><strong>Medios de pago:</strong> La mayoría de los locales operan con medios de pago digitalizados (tarjetas o billeteras virtuales) y efectivo. Consultar las promociones el mismo dia de la reserva ya que varios tienen alianzas con diferentes bancos y billeteras que pueden brindar un descuento especial. </li>
             </ul>
         </section>
-
+<!-- Formulario de Consultas -->
         <section class="bg-white p-6 md:p-8 rounded-lg border border-topo max-w-2xl mx-auto space-y-6">
-            <h2 class="text-2xl font-bold text-center">Consultas de Fast Food</h2>
+            <h2 class="text-2xl font-bold text-center">Consultas</h2>
             <form id="contact-form" class="space-y-4" novalidate>
                 <div>
                     <label for="contact-name" class="block text-sm font-medium">Nombre completo</label>
-                    <input type="text" id="contact-name" class="w-full border border-topo rounded p-2 text-sm mt-1" required>
+                    <input type="text" id="contact-name" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon" required>
                     <span id="name-error" class="text-xs text-red-500 hidden">Por favor ingresá tu nombre.</span>
                 </div>
                 <div>
                     <label for="contact-email" class="block text-sm font-medium">Correo Electrónico</label>
-                    <input type="email" id="contact-email" class="w-full border border-topo rounded p-2 text-sm mt-1" required>
+                    <input type="email" id="contact-email" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon" required>
                     <span id="email-error" class="text-xs text-red-500 hidden">Ingresá un correo electrónico válido.</span>
                 </div>
                 <div>
                     <label for="contact-reason" class="block text-sm font-medium">Motivo de la consulta</label>
-                    <select id="contact-reason" class="w-full border border-topo rounded p-2 text-sm mt-1">
-                        <option value="recomendacion">Recomendar una hamburguesería</option>
+                    <select id="contact-reason" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon">
+                        <option value="recomendacion">Recomendar un local</option>
+                        <option value="recorrido">Dudas sobre los recorridos / reservas</option>
                         <option value="menu">Dudas sobre opciones celíacas / veganas</option>
                         <option value="otro">Consulta general</option>
                     </select>
                 </div>
                 <div>
                     <label for="contact-message" class="block text-sm font-medium">Mensaje</label>
-                    <textarea id="contact-message" rows="4" class="w-full border border-topo rounded p-2 text-sm mt-1" required></textarea>
+                    <textarea id="contact-message" rows="4" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon" required></textarea>
                     <span id="message-error" class="text-xs text-red-500 hidden">El mensaje no puede estar vacío.</span>
                 </div>
                 <button type="submit" class="w-full bg-carbon text-crema font-bold py-2.5 rounded hover:bg-opacity-90 transition">
@@ -216,17 +217,18 @@
             <div id="contact-alert" class="hidden p-4 bg-green-100 border border-green-400 text-green-800 rounded text-sm text-center"></div>
         </section>
 
+        <!-- Asistente Virtual / Chatbot Interactivo -->
         <section class="bg-white p-6 rounded-lg border border-topo max-w-2xl mx-auto space-y-4">
             <h2 class="text-xl font-bold flex items-center space-x-2">
-                <span>🤖 Asistente Virtual Fast Food</span>
+                <span>🤖 Asistente Virtual LASTRANDO</span>
             </h2>
             <div id="chat-window" class="h-48 border border-topo rounded p-3 overflow-y-auto space-y-2 bg-crema text-xs">
                 <div class="bg-white p-2 rounded max-w-xs border border-topo">
-                    ¡Hola! Soy el asistente gastronómico de Lastrando. ¿Tenés dudas sobre las hamburgueserías, la técnica smash o los medios de pago?
+                    ¡Hola! Soy el asistente gastronómico de Lastrando. ¿Tenés dudas sobre las reservas, los horarios de los recorridos o los medios de pago?
                 </div>
             </div>
             <div class="flex space-x-2">
-                <input type="text" id="chat-input" placeholder="Escribí tu pregunta acá..." class="flex-grow border border-topo rounded px-3 py-1.5 text-sm">
+                <input type="text" id="chat-input" placeholder="Escribí tu pregunta acá..." class="flex-grow border border-topo rounded px-3 py-1.5 text-sm focus:outline-none focus:ring-1 focus:ring-carbon">
                 <button id="chat-send" class="bg-nude px-4 py-1.5 font-bold rounded text-sm hover:bg-opacity-80 transition">Enviar</button>
             </div>
         </section>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LASTRANDO - Recorrido Gastronómico Porteño</title>
+    <!-- Script principal del proyecto -->
+    <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,7 +29,6 @@
     </script>
 </head>
 <body class="bg-crema text-carbon font-sans flex flex-col min-h-screen">
-
     <header class="bg-white border-b border-topo sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <a href="index.html" class="flex items-center space-x-2">
@@ -48,11 +49,12 @@
       </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-topo px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
             <a href="index.html" class="block py-1 text-nude font-bold">Inicio</a>
-            <a href="meriendas.html" class="block py-1 hover:text-topo">Meriendas</a>
-            <a href="parrillas-bodegones.html" class="block py-1 hover:text-topo">Parrillas & Bodegones</a>
-            <a href="fast-food.html" class="block py-1 hover:text-topo">Fast Food</a>
-            <a href="bares-night.html" class="block py-1 hover:text-topo">Bares & Night</a>
+            <a href="merienda.html" class="block py-1 hover:text-topo">Meriendas</a>
+            <a href="parrillas.html" class="block py-1 hover:text-topo">Parrillas & Bodegones</a>
+            <a href="fastfood.html" class="block py-1 hover:text-topo">Fast Food</a>
+            <a href="bares.html" class="block py-1 hover:text-topo">Bares & Night</a>
             <a href="internacional.html" class="block py-1 hover:text-topo">Internacional</a>
+            <a href="reservar.html" class="block py-1 hover:text-topo">Reservar</a>
         </div>
     </header>
 
@@ -65,13 +67,12 @@
         </section>
 
         <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-  
             <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
                 <img src="img/meriendavedra.heif" alt="Merienda con jugo y porción de torta de vainilla con relleno de frambuesa" class="w-full h-48 object-cover">
                 <div class="p-5 space-y-3">
                     <h2 class="text-xl font-semibold">Cafeterías & Meriendas</h2>
                     <p class="text-sm text-gray-600">Rituales de café de especialidad, espacios de lectura y repostería artesanal en rincones tranquilos.</p>
-                    <a href="meriendas.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
+                    <a href="merienda.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
                 </div>
             </article>
     
@@ -80,7 +81,7 @@
                 <div class="p-5 space-y-3">
                     <h2 class="text-xl font-semibold">Parrillas & Bodegones</h2>
                     <p class="text-sm text-gray-600">La tradición culinaria porteña: platos abundantes, cocina casera y calidez de barrio.</p>
-                    <a href="parrillas-bodegones.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
+                    <a href="parrillas.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
                 </div>
             </article>
            
@@ -89,21 +90,21 @@
                 <div class="p-5 space-y-3">
                     <h2 class="text-xl font-semibold">Fast Food & Burgers</h2>
                     <p class="text-sm text-gray-600">Comida rápida artesanal con técnica smash, pan de elaboración propia y espíritu urbano.</p>
-                    <a href="fast-food.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
+                    <a href="fastfood.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
                 </div>
             </article>
    
             <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
-                <img src="img/baresMisiónBar .jpg" alt="Sección moderna de barra con botellas alcoholicas con las que realizan los tragos" class="w-full h-48 object-cover">
+                <img src="img/baresMisiónBar .jpg" alt="Sección moderna de barra con botellas alcohólicas" class="w-full h-48 object-cover">
                 <div class="p-5 space-y-3">
                     <h2 class="text-xl font-semibold">Bares & Night</h2>
                     <p class="text-sm text-gray-600">Coctelería de autor, rooftops con vistas a la ciudad y barras rodeadas de vegetación.</p>
-                    <a href="bares-night.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
+                    <a href="bares.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
                 </div>
             </article>
   
             <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
-                <img src="img/internacional.HEIC" alt="Ribs con barbacoa acompañadas de una porción de papas fritas y coleslaw" class="w-full h-48 object-cover">
+                <img src="img/internacional.HEIC" alt="Ribs con barbacoa acompañadas de papas fritas y coleslaw" class="w-full h-48 object-cover">
                 <div class="p-5 space-y-3">
                     <h2 class="text-xl font-semibold">Comida Internacional</h2>
                     <p class="text-sm text-gray-600">Sabores del mundo: sushi contemporáneo, pastas europeas, pizzas NY y experiencias temáticas.</p>
@@ -119,6 +120,56 @@
                 <iframe src="https://www.google.com/maps/d/embed?mid=1ht091HL8J7UkvG8Qr4T4_hl9AgB38UA" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </section>
+
+        <section class="bg-white p-6 md:p-8 rounded-lg border border-topo max-w-2xl mx-auto space-y-6">
+            <h2 class="text-2xl font-bold text-center">Consultas</h2>
+            <form id="contact-form" class="space-y-4" novalidate>
+                <div>
+                    <label for="contact-name" class="block text-sm font-medium">Nombre completo</label>
+                    <input type="text" id="contact-name" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon" required>
+                    <span id="name-error" class="text-xs text-red-500 hidden">Por favor ingresá tu nombre.</span>
+                </div>
+                <div>
+                    <label for="contact-email" class="block text-sm font-medium">Correo Electrónico</label>
+                    <input type="email" id="contact-email" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon" required>
+                    <span id="email-error" class="text-xs text-red-500 hidden">Ingresá un correo electrónico válido.</span>
+                </div>
+                <div>
+                    <label for="contact-reason" class="block text-sm font-medium">Motivo de la consulta</label>
+                    <select id="contact-reason" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon">
+                        <option value="recomendacion">Recomendar un local</option>
+                        <option value="recorrido">Dudas sobre los recorridos / reservas</option>
+                        <option value="menu">Dudas sobre opciones celíacas / veganas</option>
+                        <option value="otro">Consulta general</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="contact-message" class="block text-sm font-medium">Mensaje</label>
+                    <textarea id="contact-message" rows="4" class="w-full border border-topo rounded p-2 text-sm mt-1 focus:outline-none focus:ring-1 focus:ring-carbon" required></textarea>
+                    <span id="message-error" class="text-xs text-red-500 hidden">El mensaje no puede estar vacío.</span>
+                </div>
+                <button type="submit" class="w-full bg-carbon text-crema font-bold py-2.5 rounded hover:bg-opacity-90 transition">
+                    Enviar Consulta (Simulación)
+                </button>
+            </form>
+            <div id="contact-alert" class="hidden p-4 bg-green-100 border border-green-400 text-green-800 rounded text-sm text-center"></div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg border border-topo max-w-2xl mx-auto space-y-4">
+            <h2 class="text-xl font-bold flex items-center space-x-2">
+                <span>🤖 Asistente Virtual LASTRANDO</span>
+            </h2>
+            <div id="chat-window" class="h-48 border border-topo rounded p-3 overflow-y-auto space-y-2 bg-crema text-xs">
+                <div class="bg-white p-2 rounded max-w-xs border border-topo">
+                    ¡Hola! Soy el asistente gastronómico de Lastrando. ¿Tenés dudas sobre las reservas, los horarios de los recorridos o los medios de pago?
+                </div>
+            </div>
+            <div class="flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Escribí tu pregunta acá..." class="flex-grow border border-topo rounded px-3 py-1.5 text-sm focus:outline-none focus:ring-1 focus:ring-carbon">
+                <button id="chat-send" class="bg-nude px-4 py-1.5 font-bold rounded text-sm hover:bg-opacity-80 transition">Enviar</button>
+            </div>
+        </section>
+
     </main>
 
     <footer class="bg-carbon text-crema py-6 mt-12">
@@ -128,6 +179,5 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
 </body>
 </html>
