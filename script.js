@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookingForm = document.getElementById('table-booking-form');
     const bookingConfirmation = document.getElementById('booking-confirmation');
 
-    // Listado de paradas por circuito
-    const circuitDetails = {
+  const circuitDetails = {
         fastfood: {
             title: "Recorrido Fast Food & Hamburgueserías de Autor",
             places: [
