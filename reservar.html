@@ -1,187 +1,126 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reservar y Cotizar - LASTRANDO</title>
-
-  <!-- Favicon / Logo en la pestaña -->
-  <link rel="icon" type="image/png" href="logo.png">
-
-  <!-- Tipografía Google Font: Montserrat -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Configuración de Colores y Tipografía del Design System -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            carbon: '#1A1A1A',
-            crema: '#F6F4F1',
-            piedra: '#C9C1B4',
-            nude: '#F6DFCD',
-            blanco: '#FFFFFF',
-          },
-          fontFamily: {
-            sans: ['Montserrat', 'sans-serif'],
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Recorrido - LASTRANDO</title>
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              carbon: '#1A1A1A',
+              crema: '#F6F4F1',
+              topo: '#C9C1B4',
+              nude: '#F6DFCD',
+            },
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+            }
           }
         }
       }
-    }
-  </script>
+    </script>
 </head>
-<body class="bg-crema text-carbon font-sans antialiased flex flex-col min-h-screen">
+<body class="bg-crema text-carbon font-sans flex flex-col min-h-screen">
+    <header class="bg-white border-b border-topo sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+          <a href="index.html" class="flex items-center space-x-2">
+              <img src="logo.png" alt="Logo de Lastrando" class="h-8 w-auto object-contain">
+          </a>
+            <nav class="hidden md:flex space-x-6 font-medium text-sm">
+                <a href="index.html" class="text-nude font-bold border-b-2 border-nude">Inicio</a>
+                <a href="merienda.html" class="hover:text-topo transition">Meriendas</a>
+                <a href="parrillas.html" class="hover:text-topo transition">Parrillas & Bodegones</a>
+                <a href="fastfood.html" class="hover:text-topo transition">Fast Food</a>
+                <a href="bares.html" class="hover:text-topo transition">Bares & Night</a>
+                <a href="internacional.html" class="hover:text-topo transition">Internacional</a>
+                <a href="reservar.html" class="hover:text-topo transition">Reservar</a>
+            </nav>
+            <!-- Menú Hamburguesa Mobile -->
+            <button id="hamburger-btn" class="md:hidden p-2 text-carbon focus:outline-none" aria-label="Abrir menú de navegación">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <!-- Menú desplegable Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-topo px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="index.html" class="block py-1 hover:text-topo">Inicio</a>
+            <a href="meriendas.html" class="block py-1 hover:text-topo">Meriendas</a>
+            <a href="parrillas-bodegones.html" class="block py-1 hover:text-topo">Parrillas & Bodegones</a>
+            <a href="fast-food.html" class="block py-1 hover:text-topo">Fast Food</a>
+            <a href="bares-night.html" class="block py-1 hover:text-topo">Bares & Night</a>
+            <a href="internacional.html" class="block py-1 hover:text-topo">Internacional</a>
+            <a href="reservar.html" class="block py-1 text-nude font-bold">Reservar</a>
+        </div>
+    </header>
 
-  <!-- HEADER Y BARRA DE NAVEGACIÓN -->
-  <header class="sticky top-0 z-50 bg-crema border-b border-piedra px-4 py-3 shadow-sm">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-      
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center">
-        <img src="logo.png" 
-             alt="Logo de Lastrando escrito a mano" 
-             class="h-10 sm:h-12 w-auto object-contain">
-      </a>
-
-      <!-- Menú de navegación principal con Reservar activo -->
-      <nav>
-        <ul class="flex flex-wrap justify-center gap-2 text-xs sm:text-sm font-semibold">
-          <li><a href="index.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Inicio</a></li>
-          <li><a href="merienda.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Merienda</a></li>
-          <li><a href="parrillas.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Parrillas</a></li>
-          <li><a href="fastfood.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Fast Food</a></li>
-          <li><a href="bares.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Bares</a></li>
-          <li><a href="internacional.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Internacional</a></li>
-          <li><a href="reservar.html" class="px-3 py-1.5 rounded-full bg-nude text-carbon border border-piedra">Reservar</a></li>
-          <li><a href="contacto.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Contacto</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 space-y-8">
-
-    <div class="text-center space-y-2">
-      <h1 class="text-2xl sm:text-3xl font-bold">Solicitud &amp; Cotización de Experiencia Gastronómica</h1>
-      <p class="text-xs sm:text-sm text-carbon/70">Planificá tu salida grupal con descuento exclusivo de Lastrando. Cálculo automático en tiempo real.</p>
-    </div>
-
-    <!-- FORMULARIO DE RESERVA CON CALCULADORA Y CONVERSIÓN MONEDAS -->
-    <section class="bg-blanco p-6 sm:p-8 rounded-2xl border border-piedra shadow-sm max-w-2xl mx-auto space-y-6">
-      <form id="formReserva" class="space-y-4">
-        <div>
-          <label for="experiencia" class="block text-xs font-semibold uppercase mb-1">Seleccionar Experiencia / Circuito:</label>
-          <select id="experiencia" class="w-full text-sm p-3 bg-crema border border-piedra rounded-xl focus:outline-none focus:ring-2 focus:ring-nude">
-            <option value="15" data-nombre="Circuito Meriendas &amp; Café">Circuito Cafeterías (USD 15 / pers)</option>
-            <option value="25" data-nombre="Circuito Parrillas &amp; Bodegones">Circuito Bodegones (USD 25 / pers)</option>
-            <option value="18" data-nombre="Circuito Fast Food Smash">Circuito Hamburguesas (USD 18 / pers)</option>
-            <option value="30" data-nombre="Circuito Bares &amp; Night">Circuito Bares &amp; Coctelería (USD 30 / pers)</option>
-            <option value="35" data-nombre="Circuito Internacional Gourmet">Circuito Internacional (USD 35 / pers)</option>
-          </select>
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-8 space-y-8 w-full">
+        <!-- Presentación del Formulario de Reserva -->
+        <section class="text-center space-y-3">
+            <h1 class="text-3xl md:text-4xl font-bold">Reserva de Experiencias Gastronómicas</h1>
+            <p class="text-gray-700 leading-relaxed max-w-2xl mx-auto">
+                Elegí cualquiera de nuestros 5 recorridos temáticos guiados, indicá la cantidad de personas y calculá el costo total en tiempo real con conversión automática a Pesos Argentinos (ARS).
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label for="comensales" class="block text-xs font-semibold uppercase mb-1">Cantidad de personas:</label>
-            <input type="number" id="comensales" min="1" max="20" value="2" class="w-full text-sm p-3 bg-crema border border-piedra rounded-xl focus:outline-none focus:ring-2 focus:ring-nude">
-          </div>
-          <div>
-            <label for="adicional" class="block text-xs font-semibold uppercase mb-1">Servicio Adicional:</label>
-            <select id="adicional" class="w-full text-sm p-3 bg-crema border border-piedra rounded-xl focus:outline-none focus:ring-2 focus:ring-nude">
-              <option value="0">Sin adicional</option>
-              <option value="5">Maridaje / Degustación Especial (+ USD 5/pers)</option>
-              <option value="10">Ubicación Preferencial / Muestra exclusiva (+ USD 10/grupo)</option>
-            </select>
-          </div>
+        <!-- Formulario Interactivo 3.5 (Adquisición/Reserva con API FX) -->
+        <section class="bg-white p-6 md:p-8 rounded-lg border border-topo shadow-sm space-y-6">
+            <form id="experience-form" class="space-y-5">
+                <div>
+                    <label for="package-select" class="block text-sm font-semibold mb-1">Seleccionar Recorrido Temático:</label>
+                    <select id="package-select" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
+                        <option value="15" data-name="Recorrido 1: Cafeterías & Meriendas (USD 15)">Pase Recorrido 1: Cafeterías & Meriendas — USD 15.00 / pers.</option>
+                        <option value="25" data-name="Recorrido 2: Parrillas & Bodegones (USD 25)">Pase Recorrido 2: Parrillas & Bodegones — USD 25.00 / pers.</option>
+                        <option value="18" data-name="Recorrido 3: Fast Food & Burgers (USD 18)">Pase Recorrido 3: Fast Food & Burgers — USD 18.00 / pers.</option>
+                        <option value="30" data-name="Recorrido 4: Bares & Night (USD 30)">Pase Recorrido 4: Bares & Night — USD 30.00 / pers.</option>
+                        <option value="35" data-name="Recorrido 5: Comida Internacional (USD 35)">Pase Recorrido 5: Comida Internacional — USD 35.00 / pers.</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="people-qty" class="block text-sm font-semibold mb-1">Cantidad de Personas:</label>
+                    <input type="number" id="people-qty" min="1" max="15" value="1" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
+                </div>
+
+                <!-- Resumen de Costos y Conversión mediante API -->
+                <div class="bg-crema p-5 rounded-lg border border-topo space-y-3">
+                    <div class="flex justify-between items-center text-sm">
+                        <span>Precio Unitario (USD):</span>
+                        <strong id="unit-usd" class="text-base">$15.00 USD</strong>
+                    </div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span>Importe Subtotal (USD):</span>
+                        <strong id="total-usd" class="text-base text-gray-800">$15.00 USD</strong>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-gray-600 border-t border-topo/50 pt-2">
+                        <span>Tipo de cambio oficial (BCRA):</span>
+                        <span id="exchange-rate">Cargando cotización desde API...</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg font-bold text-carbon border-t border-topo pt-3">
+                        <span>Total Final a Abonar (ARS):</span>
+                        <span id="total-ars" class="text-xl">$0.00</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-nude text-carbon font-bold py-3 rounded-lg hover:bg-opacity-80 transition shadow-sm text-base">
+                    Confirmar Reserva del Recorrido
+                </button>
+            </form>
+
+            <div id="booking-confirmation" class="hidden p-4 bg-green-100 border border-green-400 text-green-800 rounded-lg text-sm text-center font-medium"></div>
+        </section>
+    </main>
+
+    <footer class="bg-carbon text-crema py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p class="font-bold text-base">LASTRANDO © 2026</p>
+            <p class="text-xs text-topo">Materia: Diseño y Desarrollo Web • UADE | Grupo 3</p>
         </div>
-
-        <!-- RESUMEN DINÁMICO DEL COSTO EN TIEMPO REAL -->
-        <div class="bg-crema p-4 rounded-xl border border-piedra space-y-2">
-          <div class="flex justify-between text-xs sm:text-sm">
-            <span>Importe en USD:</span>
-            <span id="subtotalUSD" class="font-bold">USD 0.00</span>
-          </div>
-          <div class="flex justify-between text-xs sm:text-sm">
-            <span>Tipo de cambio oficial (BCRA ref. Oct 2026):</span>
-            <span class="font-bold">1 USD = $1.250 ARS</span>
-          </div>
-          <hr class="border-piedra">
-          <div class="flex justify-between text-sm sm:text-base font-bold text-carbon">
-            <span>Total estimado en Pesos Argentinos:</span>
-            <span id="totalARS" class="text-lg font-bold">$0 ARS</span>
-          </div>
-        </div>
-
-        <div>
-          <label for="nombreReserva" class="block text-xs font-semibold uppercase mb-1">Nombre completo:</label>
-          <input type="text" id="nombreReserva" placeholder="Tu nombre" required class="w-full text-sm p-3 bg-crema border border-piedra rounded-xl focus:outline-none focus:ring-2 focus:ring-nude">
-        </div>
-
-        <button type="submit" class="w-full bg-nude hover:bg-nude/80 text-carbon font-bold text-sm py-3 px-4 rounded-xl border border-piedra transition shadow-sm">
-          CONFIRMAR SOLICITUD DE RESERVA
-        </button>
-      </form>
-
-      <!-- Mensaje de confirmación funcional -->
-      <div id="mensajeReserva" class="hidden p-4 bg-emerald-100 border border-emerald-300 text-emerald-800 rounded-xl text-xs sm:text-sm"></div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-crema border-t border-piedra py-6 text-center text-xs text-carbon/70">
-    <p>&copy; 2026 LASTRANDO — Grupo 3 (UADE). Desarrollo Web.</p>
-  </footer>
-
-  <!-- SCRIPT JAVASCRIPT DE CÁLCULO Y CONVERSIÓN DE MONEDA -->
-  <script>
-    const TIPO_CAMBIO_USD_ARS = 1250;
-
-    const selectExp = document.getElementById('experiencia');
-    const inputComensales = document.getElementById('comensales');
-    const selectAdicional = document.getElementById('adicional');
-    const spanUSD = document.getElementById('subtotalUSD');
-    const spanARS = document.getElementById('totalARS');
-    const formReserva = document.getElementById('formReserva');
-    const mensajeReserva = document.getElementById('mensajeReserva');
-
-    function calcularPrecio() {
-      const precioUnitario = parseFloat(selectExp.value) || 0;
-      const personas = parseInt(inputComensales.value) || 1;
-      const extra = parseFloat(selectAdicional.value) || 0;
-
-      const totalUSD = (precioUnitario * personas) + (extra * personas);
-      const totalARS = totalUSD * TIPO_CAMBIO_USD_ARS;
-
-      spanUSD.textContent = `USD ${totalUSD.toFixed(2)}`;
-      spanARS.textContent = `$${totalARS.toLocaleString('es-AR')} ARS`;
-    }
-
-    selectExp.addEventListener('change', calcularPrecio);
-    inputComensales.addEventListener('input', calcularPrecio);
-    selectAdicional.addEventListener('change', calcularPrecio);
-
-    // Calcular costo inicial al cargar la página
-    calcularPrecio();
-
-    formReserva.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nombre = document.getElementById('nombreReserva').value;
-      const opcionTexto = selectExp.options[selectExp.selectedIndex].getAttribute('data-nombre');
-      
-      mensajeReserva.classList.remove('hidden');
-      mensajeReserva.innerHTML = `<strong>¡Reserva registrada con éxito!</strong><br>Gracias ${nombre}. Has solicitado la experiencia <em>${opcionTexto}</em> para ${inputComensales.value} persona(s). Total a abonar estimado en el local: <strong>${spanARS.textContent}</strong>.`;
-      formReserva.reset();
-      calcularPrecio();
-    });
-  </script>
+    </footer>
 </body>
 </html>

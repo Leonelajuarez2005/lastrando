@@ -1,204 +1,139 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LASTRANDO - Recorrido Gastronómico por Buenos Aires</title>
-
-  <!-- Favicon / Logo en la pestaña -->
-  <link rel="icon" type="image/png" href="logo.png">
-
-  <!-- Tipografía Google Font: Montserrat -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Configuración de Colores y Tipografía del Design System -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            carbon: '#1A1A1A',
-            crema: '#F6F4F1',
-            piedra: '#C9C1B4',
-            nude: '#F6DFCD',
-            blanco: '#FFFFFF',
-          },
-          fontFamily: {
-            sans: ['Montserrat', 'sans-serif'],
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LASTRANDO - Recorrido Gastronómico Porteño</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              carbon: '#1A1A1A',
+              crema: '#F6F4F1',
+              topo: '#C9C1B4',
+              nude: '#F6DFCD',
+            },
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+            }
           }
         }
       }
-    }
-  </script>
+    </script>
 </head>
-<body class="bg-crema text-carbon font-sans antialiased flex flex-col min-h-screen">
+<body class="bg-crema text-carbon font-sans flex flex-col min-h-screen">
 
-  <!-- HEADER Y BARRA DE NAVEGACIÓN -->
-  <header class="sticky top-0 z-50 bg-crema border-b border-piedra px-4 py-3 shadow-sm">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-      
-      <!-- Logo -->
-      <a href="index.html" class="flex items-center">
-        <img src="logo.png" 
-             alt="Logo de Lastrando escrito a mano" 
-             class="h-10 sm:h-12 w-auto object-contain">
-      </a>
-
-      <!-- Menú de navegación principal con enlaces a páginas independientes -->
-      <nav>
-        <ul class="flex flex-wrap justify-center gap-2 text-xs sm:text-sm font-semibold">
-          <li><a href="index.html" class="px-3 py-1.5 rounded-full bg-nude text-carbon border border-piedra">Inicio</a></li>
-          <li><a href="merienda.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Merienda</a></li>
-          <li><a href="parrillas.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Parrillas</a></li>
-          <li><a href="fastfood.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Fast Food</a></li>
-          <li><a href="bares.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Bares</a></li>
-          <li><a href="internacional.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Internacional</a></li>
-          <li><a href="reservar.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Reservar</a></li>
-          <li><a href="contacto.html" class="px-3 py-1.5 rounded-full bg-blanco hover:bg-nude transition border border-piedra">Contacto</a></li>
-        </ul>
-      </nav>
-
-    </div>
-  </header>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-6 space-y-12">
-
-    <!-- HERO / PRESENTACIÓN CENTRADA CON LOGO -->
-    <section class="text-center space-y-4 max-w-3xl mx-auto">
-      <h1 class="flex justify-center items-center">
-        <img src="logo.png" alt="Lastrando" class="mx-auto h-16 sm:h-20 w-auto object-contain">
-      </h1>
-
-      <p class="text-lg sm:text-xl font-medium text-carbon/90 text-center">
-        Un recorrido visual y narrativo por rincones gastronómicos entrañables
-      </p>
-
-      <p class="text-sm sm:text-base text-carbon/80 leading-relaxed text-center">
-        Nuestra propuesta nace para guiar a amantes de la buena comida a través de 5 experiencias únicas en CABA y el conurbano. Compartimos datos útiles, recomendaciones honestas y fotografías 100% propias tomadas en nuestras visitas.
-      </p>
-    </section>
-
-    <!-- MAPA INTERACTIVO -->
-    <section class="bg-blanco p-4 sm:p-6 rounded-2xl border border-piedra shadow-sm space-y-4">
-      <h2 class="text-xl sm:text-2xl font-semibold text-center">Mapa General del Recorrido</h2>
-      <p class="text-xs sm:text-sm text-center text-carbon/70">Visualizá los 5 puntos de interés clasificados por color para armar tu propia salida.</p>
-      <div class="w-full h-80 sm:h-96 rounded-xl overflow-hidden border border-piedra">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1ht091HL8J7UkvG8Qr4T4_hl9AgB38UA" 
-                class="w-full h-full border-0" 
-                title="Mapa del Recorrido Gastronómico Lastrando" 
-                loading="lazy"></iframe>
-      </div>
-    </section>
-
-    <!-- PUNTOS DE INTERÉS / CATEGORÍAS -->
-    <section class="space-y-6">
-      <h2 class="text-xl sm:text-2xl font-semibold text-center">Puntos de Interés</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Card 1 -->
-        <article class="bg-blanco border border-piedra rounded-2xl p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-          <div class="space-y-3">
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-nude/60 text-carbon">Punto 1</span>
-            <h3 class="text-lg font-bold">Cafeterías de Especialidad &amp; Meriendas</h3>
-            <p class="text-sm text-carbon/80">Espacios tranquilos ideales para la lectura, el ritual del café de especialidad y la pastelería artesanal.</p>
-          </div>
-          <a href="merienda.html" class="mt-5 block text-center bg-nude hover:bg-nude/80 text-carbon font-semibold text-xs py-3 px-4 rounded-xl border border-piedra transition">VER RECORRIDO</a>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="bg-blanco border border-piedra rounded-2xl p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-          <div class="space-y-3">
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-nude/60 text-carbon">Punto 2</span>
-            <h3 class="text-lg font-bold">Parrillas &amp; Bodegones</h3>
-            <p class="text-sm text-carbon/80">La auténtica cocina porteña: milanesas gigantes, platos abundantes y calidez de club de barrio.</p>
-          </div>
-          <a href="parrillas.html" class="mt-5 block text-center bg-nude hover:bg-nude/80 text-carbon font-semibold text-xs py-3 px-4 rounded-xl border border-piedra transition">VER RECORRIDO</a>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="bg-blanco border border-piedra rounded-2xl p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-          <div class="space-y-3">
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-nude/60 text-carbon">Punto 3</span>
-            <h3 class="text-lg font-bold">Fast Food &amp; Burgers</h3>
-            <p class="text-sm text-carbon/80">Cultura de comida rápida artesanal, carnes smash, pan casero y un ambiente joven y descontracturado.</p>
-          </div>
-          <a href="fastfood.html" class="mt-5 block text-center bg-nude hover:bg-nude/80 text-carbon font-semibold text-xs py-3 px-4 rounded-xl border border-piedra transition">VER RECORRIDO</a>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="bg-blanco border border-piedra rounded-2xl p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-          <div class="space-y-3">
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-nude/60 text-carbon">Punto 4</span>
-            <h3 class="text-lg font-bold">Bares &amp; Night</h3>
-            <p class="text-sm text-carbon/80">Rooftops con vistas panorámicas, gin tonics tirados en jardines y barras con coctelería contemporánea.</p>
-          </div>
-          <a href="bares.html" class="mt-5 block text-center bg-nude hover:bg-nude/80 text-carbon font-semibold text-xs py-3 px-4 rounded-xl border border-piedra transition">VER RECORRIDO</a>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="bg-blanco border border-piedra rounded-2xl p-5 flex flex-col justify-between shadow-sm hover:shadow-md transition">
-          <div class="space-y-3">
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-nude/60 text-carbon">Punto 5</span>
-            <h3 class="text-lg font-bold">Comida Internacional</h3>
-            <p class="text-sm text-carbon/80">Sabores del mundo sin salir de la ciudad: sushi contemporáneo, pastas europeas y pizzerías gourmet.</p>
-          </div>
-          <a href="internacional.html" class="mt-5 block text-center bg-nude hover:bg-nude/80 text-carbon font-semibold text-xs py-3 px-4 rounded-xl border border-piedra transition">VER RECORRIDO</a>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- CHATBOT / ASISTENCIA DE PREGUNTAS FRECUENTES -->
-    <section class="bg-blanco p-6 rounded-2xl border border-piedra shadow-sm max-w-2xl mx-auto space-y-4">
-      <h2 class="text-xl font-bold text-center">Asistente Gastronómico (FAQ Bot)</h2>
-      <div id="chatBox" class="h-48 overflow-y-auto bg-crema p-3 rounded-xl border border-piedra text-xs space-y-2">
-        <div class="bg-blanco p-2.5 rounded-lg border border-piedra/50 max-w-[85%]">
-          <strong>Bot:</strong> ¡Hola! Soy el asistente de Lastrando. Seleccioná una pregunta para ayudarte.
+    <!-- Header y Navegación Responsive -->
+    <header class="bg-white border-b border-topo sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="index.html" class="flex items-center space-x-2">
+            <img src="logo.png" alt="Logo de Lastrando" class="h-8 w-auto object-contain">
+        </a>
+            <!-- Menú Desktop -->
+            <nav class="hidden md:flex space-x-6 font-medium text-sm">
+                <a href="index.html" class="text-nude font-bold border-b-2 border-nude">Inicio</a>
+                <a href="merienda.html" class="hover:text-topo transition">Meriendas</a>
+                <a href="parrillas.html" class="hover:text-topo transition">Parrillas & Bodegones</a>
+                <a href="fastfood.html" class="hover:text-topo transition">Fast Food</a>
+                <a href="bares.html" class="hover:text-topo transition">Bares & Night</a>
+                <a href="internacional.html" class="hover:text-topo transition">Internacional</a>
+                <a href="reservar.html" class="hover:text-topo transition">Reservar</a>
+            </nav>
+            <!-- Menú Hamburguesa Mobile -->
+            <button id="hamburger-btn" class="md:hidden p-2 text-carbon focus:outline-none" aria-label="Abrir menú de navegación">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </div>
-      </div>
-      <div class="flex flex-wrap gap-2 text-xs">
-        <button onclick="responderFAQ('horarios')" class="bg-crema border border-piedra px-3 py-1.5 rounded-full hover:bg-nude">¿Qué horarios manejan?</button>
-        <button onclick="responderFAQ('reservas')" class="bg-crema border border-piedra px-3 py-1.5 rounded-full hover:bg-nude">¿Hay que reservar?</button>
-        <button onclick="responderFAQ('pagos')" class="bg-crema border border-piedra px-3 py-1.5 rounded-full hover:bg-nude">¿Qué medios de pago aceptan?</button>
-      </div>
-    </section>
+        <!-- Menú desplegable Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-topo px-4 pt-2 pb-4 space-y-2 text-sm font-medium">
+            <a href="index.html" class="block py-1 text-nude font-bold">Inicio</a>
+            <a href="meriendas.html" class="block py-1 hover:text-topo">Meriendas</a>
+            <a href="parrillas-bodegones.html" class="block py-1 hover:text-topo">Parrillas & Bodegones</a>
+            <a href="fast-food.html" class="block py-1 hover:text-topo">Fast Food</a>
+            <a href="bares-night.html" class="block py-1 hover:text-topo">Bares & Night</a>
+            <a href="internacional.html" class="block py-1 hover:text-topo">Internacional</a>
+        </div>
+    </header>
 
-  </main>
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-8 space-y-12">
+        <section class="text-center max-w-3xl mx-auto space-y-4">
+            <img src="logo.png" alt="Logo de Lastrando" class="h-16 sm:h-20 w-auto mx-auto object-contain mb-2">
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight">Descubrí donde comer bien en Buenos Aires</h1>
+            <p class="text-lg text-gray-700">Un recorrido gastronómico visual y narrativo por CABA y GBA guiado por vivencias personales y fotografías 100% reales.</p>
+            <div class="inline-block bg-nude text-carbon px-6 py-2 rounded-full font-semibold text-sm shadow-sm">5 Circuitos Únicos • Fotos Propias</div>
+        </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-crema border-t border-piedra py-6 text-center text-xs text-carbon/70">
-    <p>&copy; 2026 LASTRANDO — Grupo 3 (UADE). Desarrollo Web.</p>
-  </footer>
+        <!-- Tarjetas de Acceso a los Puntos de Interés (Grid Responsive) -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
+                <img src="img/meriendavedra.heif" alt="Merienda con jugo y porción de torta de vainilla con relleno de frambuesa" class="w-full h-48 object-cover">
+                <div class="p-5 space-y-3">
+                    <h2 class="text-xl font-semibold">Cafeterías & Meriendas</h2>
+                    <p class="text-sm text-gray-600">Rituales de café de especialidad, espacios de lectura y repostería artesanal en rincones tranquilos.</p>
+                    <a href="meriendas.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
+                </div>
+            </article>
+            <!-- Card 2 -->
+            <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
+                <img src="img/bodegones.PNG" alt="Abundantes platos acompañado con una copa de vino" class="w-full h-48 object-cover">
+                <div class="p-5 space-y-3">
+                    <h2 class="text-xl font-semibold">Parrillas & Bodegones</h2>
+                    <p class="text-sm text-gray-600">La tradición culinaria porteña: platos abundantes, cocina casera y calidez de barrio.</p>
+                    <a href="parrillas-bodegones.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
+                </div>
+            </article>
+            <!-- Card 3 -->
+            <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
+                <img src="img/felixburguers.HEIC" alt="Hamburguesa smash doble con queso cheddar fundido y papas fritas" class="w-full h-48 object-cover">
+                <div class="p-5 space-y-3">
+                    <h2 class="text-xl font-semibold">Fast Food & Burgers</h2>
+                    <p class="text-sm text-gray-600">Comida rápida artesanal con técnica smash, pan de elaboración propia y espíritu urbano.</p>
+                    <a href="fast-food.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
+                </div>
+            </article>
+            <!-- Card 4 -->
+            <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
+                <img src="img/baresMisiónBar .jpg" alt="Sección moderna de barra con botellas alcoholicas con las que realizan los tragos" class="w-full h-48 object-cover">
+                <div class="p-5 space-y-3">
+                    <h2 class="text-xl font-semibold">Bares & Night</h2>
+                    <p class="text-sm text-gray-600">Coctelería de autor, rooftops con vistas a la ciudad y barras rodeadas de vegetación.</p>
+                    <a href="bares-night.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
+                </div>
+            </article>
+            <!-- Card 5 -->
+            <article class="bg-white rounded-lg border border-topo overflow-hidden shadow-sm hover:shadow-md transition">
+                <img src="img/internacional.HEIC" alt="Ribs con barbacoa acompañadas de una porción de papas fritas y coleslaw" class="w-full h-48 object-cover">
+                <div class="p-5 space-y-3">
+                    <h2 class="text-xl font-semibold">Comida Internacional</h2>
+                    <p class="text-sm text-gray-600">Sabores del mundo: sushi contemporáneo, pastas europeas, pizzas NY y experiencias temáticas.</p>
+                    <a href="internacional.html" class="inline-block w-full text-center bg-nude hover:bg-opacity-80 text-carbon font-medium py-2 rounded transition">Explorar Circuito</a>
+                </div>
+            </article>
+        </section>
 
-  <!-- SCRIPT JAVASCRIPT DEL CHATBOT -->
-  <script>
-    function responderFAQ(tipo) {
-      const chatBox = document.getElementById('chatBox');
-      let preg = '', resp = '';
+        <!-- Mapa del Recorrido (Google My Maps Integrado) -->
+        <section class="bg-white p-6 rounded-lg border border-topo space-y-4">
+            <h2 class="text-2xl font-bold text-center">Mapa Interactivo del Recorrido</h2>
+            <p class="text-center text-sm text-gray-600 max-w-xl mx-auto">Localizá todos los puntos gastronómicos en CABA y GBA para organizar tu propia ruta.</p>
+            <div class="w-full h-96 rounded-lg overflow-hidden border border-topo">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1ht091HL8J7UkvG8Qr4T4_hl9AgB38UA" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    </main>
 
-      if (tipo === 'horarios') {
-        preg = '¿Qué horarios manejan?';
-        resp = 'Las cafeterías abren de 8:30 a 20 hs, bodegones de 12 a 16 y 20 a 00 hs, y los bares hasta las 2:00 am.';
-      } else if (tipo === 'reservas') {
-        preg = '¿Hay que reservar?';
-        resp = 'En bodegones y rooftops (Bares) es muy recomendable reservar con anticipación los fines de semana.';
-      } else if (tipo === 'pagos') {
-        preg = '¿Qué medios de pago aceptan?';
-        resp = 'La mayoría acepta billeteras virtuales y tarjetas. En bodegones tradicionales se aconseja consultar si aplican descuentos en efectivo.';
-      }
+    <footer class="bg-carbon text-crema py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p class="font-bold text-lg">LASTRANDO © 2026</p>
+            <p class="text-xs text-topo">Diseño y Desarrollo Web • UADE | Sol Blanco, Isabella Cuccaro, Celina Daiub, Leonela Juárez, Camila Repond.</p>
+        </div>
+    </footer>
 
-      chatBox.innerHTML += `
-        <div class="bg-nude/40 p-2 rounded-lg text-right font-medium max-w-[85%] ml-auto"><strong>Tú:</strong> ${preg}</div>
-        <div class="bg-blanco p-2.5 rounded-lg border border-piedra/50 max-w-[85%]"><strong>Bot:</strong> ${resp}</div>
-      `;
-      chatBox.scrollTop = chatBox.scrollHeight;
-    }
-  </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
