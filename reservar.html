@@ -65,54 +65,53 @@
                 Al reservar un circuito, accedés a la experiencia completa que incluye todas las paradas y paradas gastronómicas recomendadas.
             </p>
         </section>
-        <section class="bg-white p-6 md:p-8 rounded-lg border border-topo shadow-sm space-y-6">
-            <form id="table-booking-form" class="space-y-5">
+       <main class="flex-grow max-w-3xl mx-auto px-4 py-8 space-y-8 w-full">
+    <section class="bg-white p-6 md:p-8 rounded-lg border border-topo shadow-sm space-y-6">
+        <form id="table-booking-form" class="space-y-5">
+            <div>
+                <label for="booking-name" class="block text-sm font-semibold mb-1">Nombre y Apellido:</label>
+                <input type="text" id="booking-name" name="Nombre_Reserva" required placeholder="Ej. María López" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
+            </div>
+            <div>
+                <label for="booking-email" class="block text-sm font-semibold mb-1">Correo Electrónico:</label>
+                <input type="email" id="booking-email" name="Email_Reserva" required placeholder="Ej. marialopez@gmail.com" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
+            </div>
+            <div>
+                <label for="circuit-select" class="block text-sm font-semibold mb-1">Seleccionar Recorrido Temático:</label>
+                <select id="circuit-select" name="Circuito" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
+                    <option value="fastfood">Fast Food & Burgers</option>
+                    <option value="meriendas">Cafeterías & Meriendas</option>
+                    <option value="parrillas">Parrillas & Bodegones</option>
+                    <option value="bares">Bares & Night</option>
+                    <option value="internacional">Comida Internacional</option>
+                </select>
+            </div>
+            <div id="circuit-info-box" class="bg-crema p-4 rounded-lg border border-topo/70 space-y-2 text-xs md:text-sm">
+            </div>
+            <div>
+                <label for="shift-select" class="block text-sm font-semibold mb-1">Turno del Recorrido:</label>
+                <select id="shift-select" name="Turno" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
+                    <option value="Mediodía (12:30 a 15:30 hs)">Mediodía (12:30 a 15:30 hs)</option>
+                    <option value="Noche (20:00 a 23:30 hs)">Noche (20:00 a 23:30 hs)</option>
+                </select>
+            </div>
+            <div>
+                <label for="people-qty" class="block text-sm font-semibold mb-1">Cantidad de Personas:</label>
+                <input type="number" id="people-qty" name="Cantidad_Personas" min="1" max="15" value="2" required class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
+            </div>
+            <div>
+                <label for="booking-notes" class="block text-sm font-semibold mb-1">Aclaraciones especiales (opcional):</label>
+                <textarea id="booking-notes" name="Aclaraciones" rows="2" placeholder="Ej. Preferencias de mesas juntas, menú apto celíacos o silla para niños" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none"></textarea>
+            </div>
 
-                <div>
-                    <label for="booking-name" class="block text-sm font-semibold mb-1">Nombre y Apellido:</label>
-                    <input type="text" id="booking-name" required placeholder="Ej. María Lopez" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
-                </div>
+            <button type="submit" class="w-full bg-nude text-carbon font-bold py-3 rounded-lg hover:bg-opacity-80 transition shadow-sm text-base">
+                Confirmar Reserva del Recorrido (Simulación)
+            </button>
+        </form>
 
-                <div>
-                    <label for="circuit-select" class="block text-sm font-semibold mb-1">Seleccionar Recorrido Temático:</label>
-                    <select id="circuit-select" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
-                        <option value="fastfood">Fast Food & Burgers</option>
-                        <option value="meriendas">Cafeterías & Meriendas</option>
-                        <option value="parrillas">Parrillas & Bodegones</option>
-                        <option value="bares">Bares & Night</option>
-                        <option value="internacional">Comida Internacional</option>
-                    </select>
-                </div>
-
-                <div id="circuit-info-box" class="bg-crema p-4 rounded-lg border border-topo/70 space-y-2 text-xs md:text-sm">
-                    <!-- Se actualiza dinámicamente según el recorrido elegido -->
-                </div>
-
-                <div>
-                    <label for="shift-select" class="block text-sm font-semibold mb-1">Turno del Recorrido:</label>
-                    <select id="shift-select" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
-                        <option value="Mediodía (12:30 a 15:30 hs)">Mediodía (12:30 a 15:30 hs)</option>
-                        <option value="Noche (20:00 a 23:30 hs)">Noche (20:00 a 23:30 hs)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label for="people-qty" class="block text-sm font-semibold mb-1">Cantidad de Personas:</label>
-                    <input type="number" id="people-qty" min="1" max="15" value="2" required class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none">
-                </div>
-
-                <div>
-                    <label for="booking-notes" class="block text-sm font-semibold mb-1">Aclaraciones especiales (opcional):</label>
-                    <textarea id="booking-notes" rows="2" placeholder="Ej. Preferencias de mesas juntas, menú apto celíacos o silla para niños" class="w-full border border-topo rounded p-2.5 text-sm bg-crema focus:ring-1 focus:ring-carbon focus:outline-none"></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-nude text-carbon font-bold py-3 rounded-lg hover:bg-opacity-80 transition shadow-sm text-base">
-                    Confirmar Reserva del Recorrido (Simulación)
-                </button>
-            </form>
-
-            <div id="booking-confirmation" class="hidden p-4 bg-green-100 border border-green-400 text-green-800 rounded-lg text-sm text-center font-medium"></div>
-        </section>
+        <div id="booking-confirmation" class="hidden p-4 bg-green-100 border border-green-400 text-green-800 rounded-lg text-sm text-center font-medium mt-4"></div>
+    </section>
+</main>
   </main>
 
     <footer class="bg-carbon text-crema py-6 mt-12">

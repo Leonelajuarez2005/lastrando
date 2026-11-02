@@ -1,4 +1,4 @@
-//Menú Hamburguesa
+// Menú Hamburguesa
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-//Gestión de reserva 
+// Gestión de reserva de recorridos completos
 document.addEventListener('DOMContentLoaded', () => {
     const circuitSelect = document.getElementById('circuit-select');
     const circuitInfoBox = document.getElementById('circuit-info-box');
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             const name = document.getElementById('booking-name').value.trim();
+            const email = document.getElementById('booking-email').value.trim(); // Captura el email
             const circuitText = circuitSelect.options[circuitSelect.selectedIndex].text;
             const shift = document.getElementById('shift-select').value;
             const qty = document.getElementById('people-qty').value;
@@ -91,8 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (bookingConfirmation) {
                 bookingConfirmation.innerHTML = `
                     <strong>¡Recorrido Reservado con Éxito!</strong><br>
-                    Gracias <em>${name}</em>. Confirmamos tu reserva para el <strong>${circuitText}</strong>.<br>
-                    Comensales: <strong>${qty} persona(s)</strong> | Turno: <strong>${shift}</strong>.
+                    Gracias <em>${name}</em>. Te enviamos la confirmación a <strong>${email}</strong>.<br>
+                    Recorrido: <strong>${circuitText}</strong> | Comensales: <strong>${qty} persona(s)</strong> | Turno: <strong>${shift}</strong>.
                 `;
                 bookingConfirmation.classList.remove('hidden');
                 bookingForm.reset();
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-//Validación de formularios 
+// Validación de formularios de contacto
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form') || document.getElementById('formContacto');
     if (!contactForm) return;
@@ -157,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-//Bot de consultas
+// Asistente Virtual / Bot de consultas
 document.addEventListener('DOMContentLoaded', () => {
     const chatInput = document.getElementById('chat-input');
     const chatSend = document.getElementById('chat-send');
