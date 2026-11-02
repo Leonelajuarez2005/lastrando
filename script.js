@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "Recorrido Fast Food & Hamburgueserías de Autor",
             places: [
                 "<strong>Félix Burgers:</strong> Av. Francisco Beiró 4473, Devoto (CABA)",
-                "<strong>Big Pons:</strong> Unicenter Shopping, Martínez (GBA Norte)",
+                "<strong>Big Pons:</strong> Fitz Roy 1731 (Palermo)",
                 "<strong>Kiddo:</strong> Honduras 5265, Palermo (CABA)",
-                "<strong>Frank's Grill:</strong> Av. del Libertador 13837, Martínez (GBA Norte)"
+                "<strong>Frank's Grill:</strong> Cabello 3401 (Palermo)"
             ]
         },
         meriendas: {
